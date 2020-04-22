@@ -1,0 +1,39 @@
+<style type="text/css">
+	body {
+		text-align: center;
+	}
+</style>
+
+<h1>Dashboard</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="static/styles.css">
+	<title>Dashboard</title>
+</head>
+<body>
+<div class="container">
+<form action = "{{url_for('swipe')}}" method="POST">
+	<h3>Enter Parameters:</h3>
+	<label for="term"><b>Term</b></label>
+	<input type="text" placeholder="enter search term" name="term" required>
+	<label for="limit"><b>limit</b></label>
+	<input type="text" placeholder="enter search limit" name="limit" required>
+	<label for="radius"><b>radius</b></label>
+	<input type="text" placeholder="enter radius" name="radius" required>
+	<label for="sort_by">sort by</label>
+	<select id="sort_by">
+		<option value="best_match">Best Match</option>
+		<option value="rating">Rating</option>
+		<option value="review_count">Review Count</option>
+		<option value="distance">distance</option>
+	</select>
+	<label>
+	<label for="location">Location</label>
+	<input type="text" placeholder="location" name="location" required>
+	<button>Submit</button>
+</form>
+</div>
+</body>
+</html>
