@@ -1,6 +1,5 @@
 from application import app, YelpSearchAlgorithm
-from flask import render_template, request, 
-from flask_pymongo import PyMongo
+from flask import render_template, request
 
 #pull data from api
 
