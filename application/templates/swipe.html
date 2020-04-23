@@ -3,6 +3,8 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <style>
 
 body {
@@ -60,7 +62,7 @@ body {
 <body>
 <div class="container">
 <form action = "{{url_for('swipe')}}" method="POST">
-  <h3>Enter Parameters:</h3>
+  <h3 id ="title">Enter Parameters:</h3>
   <label for="term"><b>Term</b></label>
   <input type="text" placeholder="enter search term" name="term" required>
   <label for="limit"><b>limit</b></label>
@@ -80,14 +82,16 @@ body {
   <button>Submit</button>
 </form>
 </div>
+
 <div class="container">
+
 {% for data in data %}
-  <div class="flip-card">
+  <div class="flip-card" id ={{data["id"]}} onclick="reply_click(this.id)">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src={{data["image_url"]}} alt="Avatar" style="width:250px;height:250px;">
       </div>
-      <div class="flip-card-back">
+      <div class="flip-card-back" id="b_{{data["id"]}}">
         <h1>{{data["name"]}}</h1> 
         <p>Stars: {{data["rating"]}}</p> 
         <p># of Reviews: {{data["review_count"]}}</p>
@@ -96,6 +100,13 @@ body {
   </div>
   {% endfor %}
 </div>
+<script type="text/javascript">
+  function reply_click(clicked_id){
+    var string = "b_" + clicked_id;
+    var child = document.getElementById(string);
+    child.style.color = "#b92929";
+  }
+</script>
 
 </body>
 </html>

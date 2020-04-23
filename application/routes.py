@@ -1,5 +1,7 @@
 from application import app, YelpSearchAlgorithm
-from flask import render_template, request
+from flask import render_template, request, 
+from flask_pymongo import PyMongo
+
 #pull data from api
 
 
@@ -16,3 +18,4 @@ def swipe():
 	location = request.form.get('location')
 	data = YelpSearchAlgorithm.pullDataFromYelpAPI(term, limit, radius, sort_by, location)
 	return render_template("swipe.html", data=data)
+
